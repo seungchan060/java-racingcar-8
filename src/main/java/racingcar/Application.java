@@ -20,5 +20,6 @@ class RacingCalculator {
         if (inputCarName == null || inputCarName.isEmpty()) throw new IllegalArgumentException("경주할 자동차 이름을 입력해주세요");
         if (!inputNumber.matches("[0-9]")) throw new IllegalArgumentException("0~9 사이의 숫자를 입력해주세요");
 
+        String[] cars = inputCarName.split(",");
     }
 }
