@@ -14,3 +14,9 @@ public class Application {
         }
     }
 }
+
+class RacingCalculator {
+    public static void race(String inputCarName, String inputNumber) {
+
+    }
+}
