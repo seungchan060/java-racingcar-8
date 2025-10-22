@@ -66,6 +66,9 @@ class Car {
     }
 
     public void move() {
-        position++;
+        int random = Randoms.pickNumberInRange(0, 9);
+        if (random >= 4) {
+            this.position++;
+        }
     }
 }
