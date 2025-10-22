@@ -27,21 +27,17 @@ class RacingCalculator {
         String[] carNames = inputCarName.split(",");
         int tryCount = Integer.parseInt(inputNumber);
 
+        List<Car> cars = new ArrayList<>();
         for (String name : carNames) { // 자동차 검증
             validateCarName(name);
+            cars.add(new Car(name));
         }
 
         System.out.println("\n실행 결과");
 
         for (int i = 0; i < tryCount; i++) { // 레이싱 시작
             for (Car car : cars) {
-                int random = Randoms.pickNumberInRange(0, 9);
-
-                if (random >= 4) {
-                    System.out.println(car + " : 전진!");
-                } else {
-                    System.out.println(car + " : 멈춤!");
-                }
+                car.move();
             }
         }
     }
