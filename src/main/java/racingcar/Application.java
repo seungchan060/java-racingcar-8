@@ -42,6 +42,8 @@ class RacingCalculator {
             }
             System.out.println();
         }
+
+        printWinners(cars);
     }
 
     private static void validateCarName(String carName) {
@@ -66,6 +68,16 @@ class RacingCalculator {
                 maxPosition = car.getPosition();
             }
         }
+
+        // 같은 position을 가진 자동차 이름만 모으기
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
 
