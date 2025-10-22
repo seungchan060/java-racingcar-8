@@ -38,7 +38,9 @@ class RacingCalculator {
         for (int i = 0; i < tryCount; i++) { // 레이싱 시작
             for (Car car : cars) {
                 car.move();
+                car.printStatus();
             }
+            System.out.println();
         }
     }
 
@@ -65,10 +67,16 @@ class Car {
         this.name = name;
     }
 
+    // 전진 로직
     public void move() {
         int random = Randoms.pickNumberInRange(0, 9);
         if (random >= 4) {
             this.position++;
         }
+    }
+
+    // 현재 상태 출력
+    public void printStatus() {
+        System.out.println(name + " : " + "-".repeat(position));
     }
 }
