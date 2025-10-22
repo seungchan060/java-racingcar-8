@@ -59,7 +59,13 @@ class RacingCalculator {
     }
 
     private static void printWinners(List<Car> cars) {
-
+        // 가장 큰 position 찾기
+        int maxPosition = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
     }
 }
 
@@ -82,5 +88,13 @@ class Car {
     // 현재 상태 출력
     public void printStatus() {
         System.out.println(name + " : " + "-".repeat(position));
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
