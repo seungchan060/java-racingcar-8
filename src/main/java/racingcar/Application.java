@@ -21,5 +21,6 @@ class RacingCalculator {
         if (!inputNumber.matches("[0-9]")) throw new IllegalArgumentException("0~9 사이의 숫자를 입력해주세요");
 
         String[] cars = inputCarName.split(",");
+        int tryCount = Integer.parseInt(inputNumber);
     }
 }
