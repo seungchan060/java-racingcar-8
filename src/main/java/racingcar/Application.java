@@ -24,7 +24,22 @@ class RacingCalculator {
         int tryCount = Integer.parseInt(inputNumber);
 
         for (String car : cars) { // 자동차 검증
-            
+            validateCarName(car);
+        }
+
+    }
+
+    private static void validateCarName(String carName) {
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 비어 있을 수 없습니다.");
+        }
+
+        if (!carName.matches("[a-zA-Z0-9가-힣]+")) {
+            throw new IllegalArgumentException("자동차 이름은 영어, 숫자, 한글만 가능합니다: " + carName);
+        }
+
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다: " + carName);
         }
     }
 }
