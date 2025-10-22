@@ -22,5 +22,9 @@ class RacingCalculator {
 
         String[] cars = inputCarName.split(",");
         int tryCount = Integer.parseInt(inputNumber);
+
+        for (String car : cars) { // 자동차 검증
+            
+        }
     }
 }
