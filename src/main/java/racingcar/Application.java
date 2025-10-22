@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -20,17 +22,19 @@ public class Application {
 class RacingCalculator {
     public static void race(String inputCarName, String inputNumber) {
         if (inputCarName == null || inputCarName.isEmpty()) throw new IllegalArgumentException("경주할 자동차 이름을 입력해주세요");
-        if (!inputNumber.matches("[0-9]")) throw new IllegalArgumentException("0~9 사이의 숫자를 입력해주세요");
+        if (!inputNumber.matches("^(100|[1-9][0-9]?)$")) throw new IllegalArgumentException("1~100 사이의 숫자를 입력해주세요");
 
-        String[] cars = inputCarName.split(",");
+        String[] carNames = inputCarName.split(",");
         int tryCount = Integer.parseInt(inputNumber);
 
-        for (String car : cars) { // 자동차 검증
-            validateCarName(car);
+        for (String name : carNames) { // 자동차 검증
+            validateCarName(name);
         }
 
+        System.out.println("\n실행 결과");
+
         for (int i = 0; i < tryCount; i++) { // 레이싱 시작
-            for (String car : cars) {
+            for (Car car : cars) {
                 int random = Randoms.pickNumberInRange(0, 9);
 
                 if (random >= 4) {
